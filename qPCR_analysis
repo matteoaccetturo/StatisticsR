@@ -1,0 +1,791 @@
+#data<-read.table(
+#  "C:/Documents and Settings/Accetturo/Documenti/per Matteo/CT/results18a_29c_20-12-12.txt",
+#  blank.lines.skip=TRUE, header=TRUE)
+#data$Sample
+#data$Detector
+
+#hsa-miR-769-5p<-data[(data$Sample=="1C" &
+#                  data$Detector=="hsa-miR-769-5p"), "Ct"]
+
+data195_769<-read.table(
+  "D:/Rigetto/per Matteo new/CT/results_195_769.txt",
+  blank.lines.skip=TRUE, header=TRUE)
+
+dataLet7a<-read.table(
+  "D:/Rigetto/per Matteo new/CT/results_housekeeping(let-7a).txt",
+  blank.lines.skip=TRUE, header=TRUE)
+
+data769CCMR<-read.table(
+  "D:/Rigetto/per Matteo new/CT/per matteo(CCMR).txt",
+  blank.lines.skip=TRUE, header=TRUE)
+
+#print("give "hsa-miR-769-5p" name: ")
+#"hsa-miR-769-5p"<-scan(file = "", what = "", nmax = 1, quiet=TRUE)
+#print("hsa-miR-769-5p")
+###################################inizio interactive#################################
+#if (interactive()){
+#  "hsa-miR-769-5p" <- readline(prompt="give "hsa-miR-769-5p" name: ")
+#ciao2 <- 
+#  data195_769$Ct[data195_769$Sample=="1C" & data195_769$Detector=="hsa-miR-769-5p"]
+#is.vector(C1CtmiR769)
+
+
+
+##############################"hsa-miR-769-5p"###############################
+####
+
+#seleziona i Ct (in triplicato) di 1 (CCMR) per "hsa-miR-769-5p"
+CCMR1CtmiR769 <- 
+  data769CCMR$Ct[data769CCMR$Sample=="1" & data769CCMR$Detector=="hsa-miR-769-5p"]
+is.vector(CCMR1CtmiR769)
+
+#Ct "hsa-miR-769-5p" 1 (CCMR)
+CCMR1CtavgmiR769<-mean(CCMR1CtmiR769)
+CCMR1CtmiR769
+
+#seleziona i Ct (in triplicato) di 1 (CCMR) per Let7a
+CCMR1CtLet7a <- 
+  data769CCMR$Ct[data769CCMR$Sample=="1" & data769CCMR$Detector=="hsa-let-7a"]
+is.vector(CCMR1CtLet7a)
+
+#Ct let7a 1 CCMR
+CCMR1CtavgLet7a<-mean(CCMR1CtLet7a)
+CCMR1CtavgLet7a
+
+#seleziona i Ct (in triplicato) di 1C per "hsa-miR-769-5p"18a
+C1CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="1C" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(C1CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 1C
+C1CtavgmiR769<-mean(C1CtmiR769)
+C1CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 1C per Let7a
+C1CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="1C"]
+is.vector(C1CtmiR769)
+
+#Ct let7a 1C
+C1CtavgLet7a<-mean(C1CtLet7a)
+C1CtavgLet7a
+
+#dCt 1 (CCMR): Ct "hsa-miR-769-5p" - Ct Let7a
+dCtCCMR1<-CCMR1CtavgmiR769-CCMR1CtavgLet7a
+dCtCCMR1
+
+#dCt 1C: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt1C<-C1CtavgmiR769-C1CtavgLet7a
+dCt1C
+
+####
+#seleziona i Ct (in triplicato) di 2 (CCMR) per "hsa-miR-769-5p"
+CCMR2CtmiR769 <- 
+  data769CCMR$Ct[data769CCMR$Sample=="2" & data769CCMR$Detector=="hsa-miR-769-5p"]
+is.vector(CCMR2CtmiR769)
+
+#Ct "hsa-miR-769-5p" 2 (CCMR)
+CCMR2CtavgmiR769<-mean(CCMR2CtmiR769)
+CCMR2CtmiR769
+
+#seleziona i Ct (in triplicato) di 2 (CCMR) per Let7a
+CCMR2CtLet7a <- 
+  data769CCMR$Ct[data769CCMR$Sample=="2" & data769CCMR$Detector=="hsa-let-7a"]
+is.vector(CCMR2CtLet7a)
+
+#Ct let7a 2 CCMR
+CCMR2CtavgLet7a<-mean(CCMR2CtLet7a)
+CCMR2CtavgLet7a
+
+#seleziona i Ct (in triplicato) di 2C per "hsa-miR-769-5p"18a
+C2CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="2C" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(C2CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 2C
+C2CtavgmiR769<-mean(C2CtmiR769)
+C2CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 2C per Let7a
+C2CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="2C"]
+is.vector(C2CtmiR769)
+
+#Ct let7a 2C
+C2CtavgLet7a<-mean(C2CtLet7a)
+C2CtavgLet7a
+
+#dCt 2 (CCMR): Ct "hsa-miR-769-5p" - Ct Let7a
+dCtCCMR2<-CCMR2CtavgmiR769-CCMR2CtavgLet7a
+dCtCCMR2
+
+#dCt 2C: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt2C<-C2CtavgmiR769-C2CtavgLet7a
+dCt2C
+####
+
+####
+#seleziona i Ct (in triplicato) di 3 (CCMR) per "hsa-miR-769-5p"
+CCMR3CtmiR769 <- 
+  data769CCMR$Ct[data769CCMR$Sample=="3" & data769CCMR$Detector=="hsa-miR-769-5p"]
+is.vector(CCMR3CtmiR769)
+
+#Ct "hsa-miR-769-5p" 3 (CCMR)
+CCMR3CtavgmiR769<-mean(CCMR3CtmiR769)
+CCMR3CtmiR769
+
+#seleziona i Ct (in triplicato) di 3 (CCMR) per Let7a
+CCMR3CtLet7a <- 
+  data769CCMR$Ct[data769CCMR$Sample=="3" & data769CCMR$Detector=="hsa-let-7a"]
+is.vector(CCMR3CtLet7a)
+
+#Ct let7a 3 CCMR
+CCMR3CtavgLet7a<-mean(CCMR3CtLet7a)
+CCMR3CtavgLet7a
+
+#seleziona i Ct (in triplicato) di 3C per "hsa-miR-769-5p"18a
+C3CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="3C" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(C3CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 3C
+C3CtavgmiR769<-mean(C3CtmiR769)
+C3CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 3C per Let7a
+C3CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="3C"]
+is.vector(C3CtmiR769)
+
+#Ct let7a 3C
+C3CtavgLet7a<-mean(C3CtLet7a)
+C3CtavgLet7a
+
+#dCt 3 (CCMR): Ct "hsa-miR-769-5p" - Ct Let7a
+dCtCCMR3<-CCMR3CtavgmiR769-CCMR3CtavgLet7a
+dCtCCMR3
+
+#dCt 3C: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt3C<-C3CtavgmiR769-C3CtavgLet7a
+dCt3C
+####
+
+####
+#seleziona i Ct (in triplicato) di 4 (CCMR) per "hsa-miR-769-5p"
+CCMR4CtmiR769 <- 
+  data769CCMR$Ct[data769CCMR$Sample=="4" & data769CCMR$Detector=="hsa-miR-769-5p"]
+is.vector(CCMR4CtmiR769)
+
+#Ct "hsa-miR-769-5p" 4 (CCMR)
+CCMR4CtavgmiR769<-mean(CCMR4CtmiR769)
+CCMR4CtmiR769
+
+#seleziona i Ct (in triplicato) di 4 (CCMR) per Let7a
+CCMR4CtLet7a <- 
+  data769CCMR$Ct[data769CCMR$Sample=="4" & data769CCMR$Detector=="hsa-let-7a"]
+is.vector(CCMR4CtLet7a)
+
+#Ct let7a 4 CCMR
+CCMR4CtavgLet7a<-mean(CCMR4CtLet7a)
+CCMR4CtavgLet7a
+
+#seleziona i Ct (in triplicato) di 4C per "hsa-miR-769-5p"18a
+C4CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="4C" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(C4CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 4C
+C4CtavgmiR769<-mean(C4CtmiR769)
+C4CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 4C per Let7a
+C4CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="4C"]
+is.vector(C4CtmiR769)
+
+#Ct let7a 4C
+C4CtavgLet7a<-mean(C4CtLet7a)
+C4CtavgLet7a
+
+#dCt 4 (CCMR): Ct "hsa-miR-769-5p" - Ct Let7a
+dCtCCMR4<-CCMR4CtavgmiR769-CCMR4CtavgLet7a
+dCtCCMR4
+
+#dCt 4C: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt4C<-C4CtavgmiR769-C4CtavgLet7a
+dCt4C
+####
+
+####
+#seleziona i Ct (in triplicato) di 5 (CCMR) per "hsa-miR-769-5p"
+CCMR5CtmiR769 <- 
+  data769CCMR$Ct[data769CCMR$Sample=="5" & data769CCMR$Detector=="hsa-miR-769-5p"]
+is.vector(CCMR5CtmiR769)
+
+#Ct "hsa-miR-769-5p" 5 (CCMR)
+CCMR5CtavgmiR769<-mean(CCMR5CtmiR769)
+CCMR5CtmiR769
+
+#seleziona i Ct (in triplicato) di 5 (CCMR) per Let7a
+CCMR5CtLet7a <- 
+  data769CCMR$Ct[data769CCMR$Sample=="5" & data769CCMR$Detector=="hsa-let-7a"]
+is.vector(CCMR5CtLet7a)
+
+#Ct let7a 5 CCMR
+CCMR5CtavgLet7a<-mean(CCMR5CtLet7a)
+CCMR5CtavgLet7a
+
+#seleziona i Ct (in triplicato) di 5C per "hsa-miR-769-5p"18a
+C5CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="5C" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(C5CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 5C
+C5CtavgmiR769<-mean(C5CtmiR769)
+C5CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 5C per Let7a
+C5CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="5C"]
+is.vector(C5CtmiR769)
+
+#Ct let7a 5C
+C5CtavgLet7a<-mean(C5CtLet7a)
+C5CtavgLet7a
+
+#dCt 5 (CCMR): Ct "hsa-miR-769-5p" - Ct Let7a
+dCtCCMR5<-CCMR5CtavgmiR769-CCMR5CtavgLet7a
+dCtCCMR5
+
+#dCt 5C: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt5C<-C5CtavgmiR769-C5CtavgLet7a
+dCt5C
+####
+
+####
+#seleziona i Ct (in triplicato) di 6C per "hsa-miR-769-5p"18a
+C6CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="6C" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(C6CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 6C
+C6CtavgmiR769<-mean(C6CtmiR769)
+C6CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 6C per Let7a
+C6CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="6C"]
+is.vector(C6CtmiR769)
+
+#Ct let7a 6C
+C6CtavgLet7a<-mean(C6CtLet7a)
+C6CtavgLet7a
+
+#dCt 6C: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt6C<-C6CtavgmiR769-C6CtavgLet7a
+dCt6C
+####
+
+####
+#seleziona i Ct (in triplicato) di 7C per "hsa-miR-769-5p"18a
+C7CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="7C" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(C7CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 7C
+C7CtavgmiR769<-mean(C7CtmiR769)
+C7CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 7C per Let7a
+C7CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="7C"]
+is.vector(C7CtmiR769)
+
+#Ct let7a 7C
+C7CtavgLet7a<-mean(C7CtLet7a)
+C7CtavgLet7a
+
+#dCt 7C: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt7C<-C7CtavgmiR769-C7CtavgLet7a
+dCt7C
+####
+
+#media dCt controlli
+avg_dCtCTRLs<-mean(dCt1C,dCt2C,dCt3C,dCt4C,dCt5C,dCt6C,dCt7C)
+
+#ddCt controlli
+#ddCt 1C: dCt1C-avg_dCtCTRLs
+ddCt1C<-dCt1C-avg_dCtCTRLs
+ddCt1C
+
+#ddCt 2C: dCt2C-avg_dCtCTRLs
+ddCt2C<-dCt2C-avg_dCtCTRLs
+ddCt2C
+
+#ddCt 3C: dCt3C-avg_dCtCTRLs
+ddCt3C<-dCt3C-avg_dCtCTRLs
+ddCt3C
+
+#ddCt 4C: dCt4C-avg_dCtCTRLs
+ddCt4C<-dCt4C-avg_dCtCTRLs
+ddCt4C
+
+#ddCt 5C: dCt5C-avg_dCtCTRLs
+ddCt5C<-dCt5C-avg_dCtCTRLs
+ddCt5C
+
+#ddCt 6C: dCt6C-avg_dCtCTRLs
+ddCt6C<-dCt6C-avg_dCtCTRLs
+ddCt6C
+
+#ddCt 7C: dCt7C-avg_dCtCTRLs
+ddCt7C<-dCt7C-avg_dCtCTRLs
+ddCt7C
+
+####
+#seleziona i Ct (in triplicato) di 1R per "hsa-miR-769-5p"18a
+R1CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="1R" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(R1CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 1R
+R1CtavgmiR769<-mean(R1CtmiR769)
+R1CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 1R per Let7a
+R1CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="1R"]
+is.vector(R1CtmiR769)
+
+#Ct let7a 1R
+R1CtavgLet7a<-mean(R1CtLet7a)
+R1CtavgLet7a
+
+#dCt 1R: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt1R<-R1CtavgmiR769-R1CtavgLet7a
+dCt1R
+####
+
+####
+#seleziona i Ct (in triplicato) di 2R per "hsa-miR-769-5p"18a
+R2CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="2R" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(R2CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 2R
+R2CtavgmiR769<-mean(R2CtmiR769)
+R2CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 2R per Let7a
+R2CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="2R"]
+is.vector(R2CtLet7a)
+
+#Ct let7a 2R
+R2CtavgLet7a<-mean(R2CtLet7a)
+R2CtavgLet7a
+
+#dCt 2R: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt2R<-R2CtavgmiR769-R2CtavgLet7a
+dCt2R
+####
+
+####
+#Ct "hsa-miR-769-5p"18a 3R #######stimato dagli altri valori R###########
+
+R3CtavgmiR769<-mean(c(data195_769$Ct[data195_769$Sample=="1R" & data195_769$Detector=="hsa-miR-769-5p"],
+                   data195_769$Ct[data195_769$Sample=="2R" & data195_769$Detector=="hsa-miR-769-5p"],
+                   data195_769$Ct[data195_769$Sample=="4R" & data195_769$Detector=="hsa-miR-769-5p"],
+                   data195_769$Ct[data195_769$Sample=="5R" & data195_769$Detector=="hsa-miR-769-5p"],
+                   data195_769$Ct[data195_769$Sample=="8R" & data195_769$Detector=="hsa-miR-769-5p"],
+                   data195_769$Ct[data195_769$Sample=="9R" & data195_769$Detector=="hsa-miR-769-5p"]
+                  )
+)
+
+#seleziona i Ct (in triplicato) di 3R per "hsa-miR-769-5p"18a
+# R3CtmiR769 <- 
+#   data195_769$Ct[data195_769$Sample=="3R" & data195_769$Detector=="hsa-miR-769-5p"]
+# is.vector(R3CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 3R
+# R3CtavgmiR769<-mean(R3CtmiR769)
+R3CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 3R per Let7a
+R3CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="3R"]
+is.vector(R3CtLet7a)
+
+#Ct let7a 3R
+R3CtavgLet7a<-mean(R3CtLet7a)
+R3CtavgLet7a
+
+#dCt 3R: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt3R<-R3CtavgmiR769-R3CtavgLet7a
+dCt3R
+####
+
+####
+#seleziona i Ct (in triplicato) di 4R per "hsa-miR-769-5p"18a
+R4CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="4R" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(R4CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 4R
+R4CtavgmiR769<-mean(R4CtmiR769)
+R4CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 4R per Let7a
+R4CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="4R"]
+is.vector(R4CtLet7a)
+
+#Ct let7a 4R
+R4CtavgLet7a<-mean(R4CtLet7a)
+R4CtavgLet7a
+
+#dCt 4R: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt4R<-R4CtavgmiR769-R4CtavgLet7a
+dCt4R
+####
+
+####
+#seleziona i Ct (in triplicato) di 5R per "hsa-miR-769-5p"18a
+R5CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="5R" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(R5CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 5R #######stimato dagli altri valori R###########
+#R5CtavgmiR769<-mean(c(data195_769$Ct[data195_769$Sample=="1R" & data195_769$Detector=="hsa-miR-769-5p"],
+#                    data195_769$Ct[data195_769$Sample=="2R" & data195_769$Detector=="hsa-miR-769-5p"],
+#                    data195_769$Ct[data195_769$Sample=="3R" & data195_769$Detector=="hsa-miR-769-5p"],
+#                    data195_769$Ct[data195_769$Sample=="4R" & data195_769$Detector=="hsa-miR-769-5p"],
+#                    data195_769$Ct[data195_769$Sample=="6R" & data195_769$Detector=="hsa-miR-769-5p"],
+#                    data195_769$Ct[data195_769$Sample=="7R" & data195_769$Detector=="hsa-miR-769-5p"],
+#                    data195_769$Ct[data195_769$Sample=="8R" & data195_769$Detector=="hsa-miR-769-5p"],
+#                    data195_769$Ct[data195_769$Sample=="9R" & data195_769$Detector=="hsa-miR-769-5p"],
+#                    data195_769$Ct[data195_769$Sample=="10R" & data195_769$Detector=="hsa-miR-769-5p"]
+#                    )
+#)
+R5CtavgmiR769<-mean(R5CtmiR769)
+R5CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 5R per Let7a
+R5CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="5R"]
+is.vector(R5CtLet7a)
+
+#Ct let7a 5R
+R5CtavgLet7a<-mean(R5CtLet7a)
+R5CtavgLet7a
+
+#dCt 5R: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt5R<-R5CtavgmiR769-R5CtavgLet7a
+dCt5R
+####
+
+####
+
+#Ct "hsa-miR-769-5p"18a 6R #######stimato dagli altri valori R###########
+
+R6CtavgmiR769<-mean(c(data195_769$Ct[data195_769$Sample=="1R" & data195_769$Detector=="hsa-miR-769-5p"],
+                      data195_769$Ct[data195_769$Sample=="2R" & data195_769$Detector=="hsa-miR-769-5p"],
+                      data195_769$Ct[data195_769$Sample=="4R" & data195_769$Detector=="hsa-miR-769-5p"],
+                      data195_769$Ct[data195_769$Sample=="5R" & data195_769$Detector=="hsa-miR-769-5p"],
+                      data195_769$Ct[data195_769$Sample=="8R" & data195_769$Detector=="hsa-miR-769-5p"],
+                      data195_769$Ct[data195_769$Sample=="9R" & data195_769$Detector=="hsa-miR-769-5p"]
+)
+)
+#seleziona i Ct (in triplicato) di 6R per "hsa-miR-769-5p"18a
+# R6CtmiR769 <- 
+#   data195_769$Ct[data195_769$Sample=="6R" & data195_769$Detector=="hsa-miR-769-5p"]
+# is.vector(R6CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 6R
+# R6CtavgmiR769<-mean(R6CtmiR769)
+R6CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 6R per Let7a
+R6CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="6R"]
+is.vector(R6CtLet7a)
+
+#Ct let7a 6R
+R6CtavgLet7a<-mean(R6CtLet7a)
+R6CtavgLet7a
+
+#dCt 6R: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt6R<-R6CtavgmiR769-R6CtavgLet7a
+dCt6R
+####
+
+####
+# #seleziona i Ct (in triplicato) di 7R per "hsa-miR-769-5p"18a
+# R7CtmiR769 <- 
+#   data195_769$Ct[data195_769$Sample=="7R" & data195_769$Detector=="hsa-miR-769-5p"]
+# is.vector(R7CtmiR769)
+# 
+# #Ct "hsa-miR-769-5p"18a 7R
+# R7CtavgmiR769<-mean(R7CtmiR769)
+# R7CtavgmiR769
+# 
+# #seleziona i Ct (in triplicato) di 7R per Let7a
+# #R7CtLet7a <- 
+# #  dataLet7a$Ct[dataLet7a$Sample=="7R"]
+# #is.vector(R7CtLet7a)
+# 
+# #Ct let7a 7R #######stimato dagli altri valori R###########
+# #R7CtavgLet7a<-mean(R7CtLet7a)
+# #
+# R7CtavgLet7a<-mean(c(dataLet7a$Ct[dataLet7a$Sample=="1R"],
+#                    dataLet7a$Ct[dataLet7a$Sample=="2R"],
+#                    dataLet7a$Ct[dataLet7a$Sample=="3R"],
+#                    dataLet7a$Ct[dataLet7a$Sample=="4R"],
+#                    dataLet7a$Ct[dataLet7a$Sample=="5R"],
+#                    dataLet7a$Ct[dataLet7a$Sample=="6R"],
+#                    dataLet7a$Ct[dataLet7a$Sample=="8R"],
+#                    dataLet7a$Ct[dataLet7a$Sample=="9R"]
+#                    ))
+# R7CtavgLet7a
+# 
+# #dCt 7R: Ct "hsa-miR-769-5p"18a - Ct Let7a
+# dCt7R<-R7CtavgmiR769-R7CtavgLet7a
+# dCt7R
+# ####
+
+####
+#seleziona i Ct (in triplicato) di 8R per "hsa-miR-769-5p"18a
+R8CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="8R" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(R8CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 8R
+R8CtavgmiR769<-mean(R8CtmiR769)
+R8CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 8R per Let7a
+R8CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="8R"]
+is.vector(R8CtLet7a)
+
+#Ct let7a 8R
+R8CtavgLet7a<-mean(R8CtLet7a)
+R8CtavgLet7a
+
+#dCt 8R: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt8R<-R8CtavgmiR769-R8CtavgLet7a
+dCt8R
+####
+
+####
+#seleziona i Ct (in triplicato) di 9R per "hsa-miR-769-5p"18a
+R9CtmiR769 <- 
+  data195_769$Ct[data195_769$Sample=="9R" & data195_769$Detector=="hsa-miR-769-5p"]
+is.vector(R9CtmiR769)
+
+#Ct "hsa-miR-769-5p"18a 9R
+R9CtavgmiR769<-mean(R9CtmiR769)
+R9CtavgmiR769
+
+#seleziona i Ct (in triplicato) di 9R per Let7a
+R9CtLet7a <- 
+  dataLet7a$Ct[dataLet7a$Sample=="9R"]
+is.vector(R9CtLet7a)
+
+#Ct let7a 9R
+R9CtavgLet7a<-mean(R9CtLet7a)
+R9CtavgLet7a
+
+#dCt 9R: Ct "hsa-miR-769-5p"18a - Ct Let7a
+dCt9R<-R9CtavgmiR769-R9CtavgLet7a
+dCt9R
+####
+
+####
+# #seleziona i Ct (in triplicato) di 10R per "hsa-miR-769-5p"18a
+# R10CtmiR769 <- 
+#   data195_769$Ct[data195_769$Sample=="10R" & data195_769$Detector=="hsa-miR-769-5p"]
+# is.vector(R10CtmiR769)
+# 
+# #Ct "hsa-miR-769-5p"18a 10R
+# R10CtavgmiR769<-mean(R10CtmiR769)
+# R10CtavgmiR769
+# 
+# #seleziona i Ct (in triplicato) di 10R per Let7a
+# #R10CtLet7a <- 
+# #  dataLet7a$Ct[dataLet7a$Sample=="10R"]
+# #is.vector(R10CtLet7a)
+# 
+# #Ct let7a 10R #######stimato dagli altri valori R###########
+# R10CtavgLet7a<-mean(c(dataLet7a$Ct[dataLet7a$Sample=="1R"],
+#                       dataLet7a$Ct[dataLet7a$Sample=="2R"],
+#                       dataLet7a$Ct[dataLet7a$Sample=="3R"],
+#                       dataLet7a$Ct[dataLet7a$Sample=="4R"],
+#                       dataLet7a$Ct[dataLet7a$Sample=="5R"],
+#                       dataLet7a$Ct[dataLet7a$Sample=="6R"],
+#                       dataLet7a$Ct[dataLet7a$Sample=="8R"],
+#                       dataLet7a$Ct[dataLet7a$Sample=="9R"]
+# ))
+# R10CtavgLet7a
+# 
+# ####################################fine interactive################################
+# #dCt 10R: Ct "hsa-miR-769-5p"18a - Ct Let7a
+# dCt10R<-R10CtavgmiR769-R10CtavgLet7a
+# dCt10R
+####
+
+
+#ddCt: CAMR - CTRL
+#ddCt 1R: dCt1R-avg_dCtCTRLs
+ddCt1R<-dCt1R-avg_dCtCTRLs
+ddCt1R
+
+#ddCt 2R: dCt2R-avg_dCtCTRLs
+ddCt2R<-dCt2R-avg_dCtCTRLs
+ddCt2R
+
+#ddCt 3R: dCt3R-avg_dCtCTRLs
+ddCt3R<-dCt3R-avg_dCtCTRLs
+ddCt3R
+
+#ddCt 4R: dCt4R-avg_dCtCTRLs
+ddCt4R<-dCt4R-avg_dCtCTRLs
+ddCt4R
+
+#ddCt 5R: dCt5R-avg_dCtCTRLs
+ddCt5R<-dCt5R-avg_dCtCTRLs
+ddCt5R
+
+#ddCt 6R: dCt6R-avg_dCtCTRLs
+ddCt6R<-dCt6R-avg_dCtCTRLs
+ddCt6R
+
+# #ddCt 7R: dCt7R-avg_dCtCTRLs
+# ddCt7R<-dCt7R-avg_dCtCTRLs
+# ddCt7R
+
+#ddCt 8R: dCt8R-avg_dCtCTRLs
+ddCt8R<-dCt8R-avg_dCtCTRLs
+ddCt8R
+
+#ddCt 9R: dCt9R-avg_dCtCTRLs
+ddCt9R<-dCt9R-avg_dCtCTRLs
+ddCt9R
+
+# #ddCt 10R: dCt10R-avg_dCtCTRLs
+# ddCt10R<-dCt10R-avg_dCtCTRLs
+# ddCt10R
+
+#ddCt 1 CCMR: dCt1CCMR-avg_dCtCTRLs
+ddCtCCMR1<-dCtCCMR1-avg_dCtCTRLs
+ddCtCCMR1
+
+#ddCt 2 CCMR: dCt2CCMR-avg_dCtCTRLs
+ddCtCCMR2<-dCtCCMR2-avg_dCtCTRLs
+ddCtCCMR2
+
+#ddCt 3 CCMR: dCt3CCMR-avg_dCtCTRLs
+ddCtCCMR3<-dCtCCMR3-avg_dCtCTRLs
+ddCtCCMR3
+
+#ddCt 4 CCMR: dCt4CCMR-avg_dCtCTRLs
+ddCtCCMR4<-dCtCCMR4-avg_dCtCTRLs
+ddCtCCMR4
+
+#ddCt 5 CCMR: dCt5CCMR-avg_dCtCTRLs
+ddCtCCMR5<-dCtCCMR5-avg_dCtCTRLs
+ddCtCCMR5
+
+#FC 1 CCMR
+Fc_1CCMR<-2^-ddCtCCMR1
+
+#FC 2 CCMR
+Fc_2CCMR<-2^-ddCtCCMR2
+
+#FC 3 CCMR
+Fc_3CCMR<-2^-ddCtCCMR3
+
+#FC 4 CCMR
+Fc_4CCMR<-2^-ddCtCCMR4
+
+#FC 5 CCMR
+Fc_5CCMR<-2^-ddCtCCMR5
+
+#FC 1C
+Fc_1C<-2^-ddCt1C
+
+#FC 2C
+Fc_2C<-2^-ddCt2C
+
+#FC 3C
+Fc_3C<-2^-ddCt3C
+
+#FC 4C
+Fc_4C<-2^-ddCt4C
+
+#FC 5C
+Fc_5C<-2^-ddCt5C
+
+#FC 6C
+Fc_6C<-2^-ddCt6C
+
+#FC 7C
+Fc_7C<-2^-ddCt7C
+
+#FC 1R
+Fc_1R<-2^-ddCt1R
+
+#FC 2R
+Fc_2R<-2^-ddCt2R
+
+#FC 3R
+Fc_3R<-2^-ddCt3R
+
+#FC 4R
+Fc_4R<-2^-ddCt4R
+
+#FC 5R
+Fc_5R<-2^-ddCt5R
+
+#FC 6R
+Fc_6R<-2^-ddCt6R
+
+# #FC 7R
+# Fc_7R<-2^-ddCt7R
+
+#FC 8R
+Fc_8R<-2^-ddCt8R
+
+#FC 9R
+Fc_9R<-2^-ddCt9R
+
+# #FC 10R
+# Fc_10R<-2^-ddCt10R
+#}
+
+
+CAMR769=c(Fc_1R, Fc_4R, Fc_5R, Fc_6R,Fc_9R)
+CTRL769=c(Fc_1C, Fc_2C, Fc_3C, Fc_6C,Fc_7C)
+CCMR769=c(Fc_1CCMR, Fc_2CCMR, Fc_3CCMR, Fc_4CCMR, Fc_5CCMR)
+CAMR769
+CTRL769
+CCMR769
+tiff("D:/Rigetto/per Matteo new/CT/BoxPlot769(wCCMR).tif",
+     width=1800,height=1800,res=300)
+boxplot(CAMR769,CCMR769,CTRL769, range = 0, border="black",ylim=c(0,1.6),
+        col="white", boxwex=0.4, at=1:3, axes=FALSE, ylab="FC", main="hsa-miR769-5p")
+stripchart(CAMR769, vertical=TRUE, add=TRUE, method = "jitter", 
+           pch = 21, col = "black", bg = "black", at=1)
+stripchart(CCMR769, vertical=TRUE, add=TRUE, method = "jitter", 
+           pch = 21, col = "black", bg = "black", at=2)
+stripchart(CTRL769, vertical=TRUE, add=TRUE, method = "jitter", 
+           pch = 21, col = "black", bg = "black", at=3)
+axis(2, las=2, at=c(0,0.4,0.8,1.2,1.6), labels = TRUE, tick = TRUE, pos=0.5,
+    lwd=2, lwd.ticks = 2, xpd = TRUE, cex.axis=0.7)
+axis(1, at=1:3, lab=c("CAMR","CCMR","CTRL"), pos=0, 
+     lwd=2, lwd.ticks = 2, outer = FALSE)
+#text(2,0.3,"p-value = 0.01017", cex=0.8)
+
+dev.off()
+
+locator()
